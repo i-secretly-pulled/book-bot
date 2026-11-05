@@ -2,7 +2,8 @@ name: Run Telegram Bot
 
 on:
   schedule:
-    - cron: "0 * * * *"  # будет запускаться каждый час (на практике ~каждые 6 часов на бесплатном тарифе)
+    - cron: "0 * * * *"
+  workflow_dispatch:
 
 jobs:
   run-bot:
