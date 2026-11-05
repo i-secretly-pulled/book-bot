@@ -12,12 +12,14 @@ from telegram.ext import Application, CommandHandler, MessageHandler, ContextTyp
 
 TOKEN = ""
 
+import os
+
 try:
-    with open("token.txt", "r", encoding="utf-8") as f:
-        TOKEN = f.read().strip()
-except FileNotFoundError:
-    print("Ошибка: файл token.txt не найден! Создай его и вставь туда токен.")
+    TOKEN = os.environ["TELEGRAM_TOKEN"]
+except KeyError:
+    print("Ошибка: не найден TELEGRAM_TOKEN в переменных окружения!")
     exit()
+
 
 DB_FILE = "books.json"
 
